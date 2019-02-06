@@ -2,7 +2,7 @@ FROM {{ web_image }}:{{ awx_version }}
 USER 0
 RUN sudo yum -y remove nginx
 RUN sudo yum groupinstall "Development Tools" -y
-RUN sudo yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel
+RUN sudo yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel wget
 RUN wget https://www.kernel.org/pub/software/scm/git/git-2.17.1.tar.gz && tar -zxf git-2.17.1.tar.gz && cd git-2.17.1 && make prefix=/usr/local all && sudo make prefix=/usr/local install
 USER 1000
 EXPOSE 8052
